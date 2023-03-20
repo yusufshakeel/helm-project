@@ -1,0 +1,5 @@
+fileignoreconfig:
+- filename: 00-default-chart/mychart/values.yaml
+  checksum: 6701e7480c023cf2647e88fe16acc1676a0cdbbc86b5914d6f6df8363fb1726e
+- filename: 00-default-chart/mychart/templates/ingress.yaml
+  checksum: e87f2d394783e28ca3b4b999d57bf9cbb332f38d3d12e2fecd12d29e63e38e15
