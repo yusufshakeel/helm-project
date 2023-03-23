@@ -2,9 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap
-  labels:
-    app: {{ template "name" . }}
 data:
   location: {{ .Values.location | lower | quote }}
   createdAt: {{ now | date "2020-01-01T10:20:30.000Z" | quote }}
   environmentName: {{ .Values.environmentName | default "dev" }}
+  message: "Hello, World!"

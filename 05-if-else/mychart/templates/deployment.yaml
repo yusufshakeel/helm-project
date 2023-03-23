@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "name" . }}-deployment
+  labels:
+    app: {{ .Chart.Name }}
+    release: {{ .Release.Name }}-deployment
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+        - name: {{ template "name" . }}-deployment
+          image: {{ .Values.app.image }}
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: {{ .Values.app.containerPort }}
